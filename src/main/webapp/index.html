@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
+    <link type="text/css" rel="stylesheet" href="content/css/UDStyle.css" media="screen" />
     <!-- endbuild -->
 </head>
 <body ng-app="demoApp">
@@ -86,6 +87,26 @@
     <script src="app/layouts/navbar/navbar.controller.js"></script>
     <script src="app/layouts/navbar/active-link.directive.js"></script>
     <script src="app/layouts/error/error.state.js"></script>
+    <script src="app/entities/project/project.state.js"></script>
+    <script src="app/entities/project/project.service.js"></script>
+    <script src="app/entities/project/project.search.service.js"></script>
+    <script src="app/entities/project/project.controller.js"></script>
+    <script src="app/entities/project/project-dialog.controller.js"></script>
+    <script src="app/entities/project/project-detail.controller.js"></script>
+    <script src="app/entities/project/project-delete-dialog.controller.js"></script>
+    <script src="app/entities/project/project-diagram.controller.js"></script>
+    <script src="app/entities/diagram/diagram.state.js"></script>
+    <script src="app/entities/diagram/diagram.service.js"></script>
+    <script src="app/entities/diagram/diagram.search.service.js"></script>
+    <script src="app/entities/diagram/diagram.controller.js"></script>
+    <script src="app/entities/diagram/diagram-dialog.controller.js"></script>
+    <script src="app/entities/diagram/diagram-detail.controller.js"></script>
+    <script src="app/entities/diagram/diagram-delete-dialog.controller.js"></script>
+    <script src="app/entities/diagram/UDCore.js"></script>
+    <script src="app/entities/diagram/UDModules.js"></script>
+    <script src="app/entities/diagram/UDApplication.js"></script>
+    <script src="app/entities/diagram/diagram-editor.controller.js"></script>
+
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort.directive.js"></script>
@@ -142,10 +163,10 @@
     <script src="app/admin/audits/audits.state.js"></script>
     <script src="app/admin/audits/audits.service.js"></script>
     <script src="app/admin/audits/audits.controller.js"></script>
-    <script src="app/account/settings/settings.state.js"></script>
-    <script src="app/account/settings/settings.controller.js"></script>
     <script src="app/account/sessions/sessions.state.js"></script>
     <script src="app/account/sessions/sessions.controller.js"></script>
+    <script src="app/account/settings/settings.state.js"></script>
+    <script src="app/account/settings/settings.controller.js"></script>
     <script src="app/account/register/register.state.js"></script>
     <script src="app/account/register/register.controller.js"></script>
     <script src="app/account/password/password.state.js"></script>

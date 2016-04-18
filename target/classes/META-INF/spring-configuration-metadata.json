@@ -1,0 +1,287 @@
+{
+  "groups": [
+    {
+      "name": "jhipster",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties"
+    },
+    {
+      "name": "jhipster.async",
+      "sourceMethod": "getAsync()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Async"
+    },
+    {
+      "name": "jhipster.cache",
+      "sourceMethod": "getCache()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Cache"
+    },
+    {
+      "name": "jhipster.cache.ehcache",
+      "sourceMethod": "getEhcache()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Cache",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Cache$Ehcache"
+    },
+    {
+      "name": "jhipster.http",
+      "sourceMethod": "getHttp()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Http"
+    },
+    {
+      "name": "jhipster.http.cache",
+      "sourceMethod": "getCache()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Http",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Http$Cache"
+    },
+    {
+      "name": "jhipster.logging",
+      "sourceMethod": "getLogging()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Logging"
+    },
+    {
+      "name": "jhipster.logging.logstash",
+      "sourceMethod": "getLogstash()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Logging",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Logging$Logstash"
+    },
+    {
+      "name": "jhipster.mail",
+      "sourceMethod": "getMail()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Mail"
+    },
+    {
+      "name": "jhipster.metrics",
+      "sourceMethod": "getMetrics()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Metrics"
+    },
+    {
+      "name": "jhipster.metrics.graphite",
+      "sourceMethod": "getGraphite()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Metrics$Graphite"
+    },
+    {
+      "name": "jhipster.metrics.jmx",
+      "sourceMethod": "getJmx()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Metrics$Jmx"
+    },
+    {
+      "name": "jhipster.metrics.logs",
+      "sourceMethod": "getLogs()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Metrics$Logs"
+    },
+    {
+      "name": "jhipster.metrics.spark",
+      "sourceMethod": "getSpark()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Metrics$Spark"
+    },
+    {
+      "name": "jhipster.security",
+      "sourceMethod": "getSecurity()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Security"
+    },
+    {
+      "name": "jhipster.security.remember-me",
+      "sourceMethod": "getRememberMe()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Security",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Security$RememberMe"
+    },
+    {
+      "name": "jhipster.swagger",
+      "sourceMethod": "getSwagger()",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties",
+      "type": "com.ensi.pcd.config.JHipsterProperties$Swagger"
+    },
+    {
+      "name": "spring.datasource.hikari",
+      "sourceMethod": "dataSource(org.springframework.boot.autoconfigure.jdbc.DataSourceProperties)",
+      "sourceType": "com.ensi.pcd.config.DatabaseConfiguration",
+      "type": "javax.sql.DataSource"
+    }
+  ],
+  "hints": [],
+  "properties": [
+    {
+      "defaultValue": 2,
+      "name": "jhipster.async.core-pool-size",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Async",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 50,
+      "name": "jhipster.async.max-pool-size",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Async",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 10000,
+      "name": "jhipster.async.queue-capacity",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Async",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": "16M",
+      "name": "jhipster.cache.ehcache.max-bytes-local-heap",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Cache$Ehcache",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 3600,
+      "name": "jhipster.cache.time-to-live-seconds",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Cache",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 1461,
+      "name": "jhipster.http.cache.time-to-live-in-days",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Http$Cache",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": false,
+      "name": "jhipster.logging.logstash.enabled",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Logging$Logstash",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": "localhost",
+      "name": "jhipster.logging.logstash.host",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Logging$Logstash",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 5000,
+      "name": "jhipster.logging.logstash.port",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Logging$Logstash",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 512,
+      "name": "jhipster.logging.logstash.queue-size",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Logging$Logstash",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": "demo@localhost",
+      "name": "jhipster.mail.from",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Mail",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": false,
+      "name": "jhipster.metrics.graphite.enabled",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Graphite",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": "localhost",
+      "name": "jhipster.metrics.graphite.host",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Graphite",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 2003,
+      "name": "jhipster.metrics.graphite.port",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Graphite",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": "demo",
+      "name": "jhipster.metrics.graphite.prefix",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Graphite",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": true,
+      "name": "jhipster.metrics.jmx.enabled",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Jmx",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": false,
+      "name": "jhipster.metrics.logs.enabled",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Logs",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": false,
+      "name": "jhipster.metrics.spark.enabled",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Spark",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": "localhost",
+      "name": "jhipster.metrics.spark.host",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Spark",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 9999,
+      "name": "jhipster.metrics.spark.port",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Metrics$Spark",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "jhipster.security.remember-me.key",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Security$RememberMe",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jhipster.swagger.contact-email",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jhipster.swagger.contact-name",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jhipster.swagger.contact-url",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": "demo API documentation",
+      "name": "jhipster.swagger.description",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jhipster.swagger.license",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jhipster.swagger.license-url",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jhipster.swagger.terms-of-service-url",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": "demo API",
+      "name": "jhipster.swagger.title",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": "0.0.1",
+      "name": "jhipster.swagger.version",
+      "sourceType": "com.ensi.pcd.config.JHipsterProperties$Swagger",
+      "type": "java.lang.String"
+    }
+  ]
+}

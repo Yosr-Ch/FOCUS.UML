@@ -29,6 +29,10 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active" ><a ui-sref="project" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span >Project</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="diagram" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span >Diagram</span></a></li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -47,8 +51,8 @@
                             &#xA0;<span>Settings</span></a></li>
                         <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="password" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-lock"></span>
                             &#xA0;<span>Password</span></a></li>
-                        <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="sessions" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-cloud"></span>
-                            &#xA0;<span>Sessions</span></a></li>
+                        <!--li ui-sref-active="active" ng-switch-when="true"><a ui-sref="sessions" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-cloud"></span>
+                            &#xA0;<span>Sessions</span></a></li-->
                         <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="vm.logout()" id="logout" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-out"></span>
                             &#xA0;<span>Sign out</span></a></li>
                         <li ui-sref-active="active" ng-switch-when="false"><a href="" ng-click="vm.login()" id="login" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-in"></span>
@@ -70,7 +74,7 @@
                             &#xA0;<span>User management</span></a></li>
                         <li ui-sref-active="active"><a ui-sref="jhi-tracker" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-eye-open"></span>
                                 &nbsp;<span>User tracker</span></a></li>
-                        <li ui-sref-active="active"><a ui-sref="jhi-metrics" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-dashboard"></span>
+                        <!--li ui-sref-active="active"><a ui-sref="jhi-metrics" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-dashboard"></span>
                             &#xA0;<span>Metrics</span></a></li>
                         <li ui-sref-active="active"><a ui-sref="jhi-health" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-heart"></span>
                             &#xA0;<span>Health</span></a></li>
@@ -81,7 +85,7 @@
                         <li ui-sref-active="active"><a ui-sref="logs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-tasks"></span>
                             &#xA0;<span>Logs</span></a></li>
                         <li ng-hide="vm.inProduction" ui-sref-active="active"><a ui-sref="docs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-book"></span>
-                            &#xA0;<span>API</span></a></li>
+                            &#xA0;<span>API</span></a></li-->
                         <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
                 </li>
