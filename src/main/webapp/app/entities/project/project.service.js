@@ -7,10 +7,11 @@
     Project.$inject = ['$resource', 'DateUtils'];
 
     function Project ($resource, DateUtils) {
-        var resourceUrl =  'api/projects/:id/:action';
+        var resourceUrl =  'api/projects/:prjId/:action';
 
         return $resource(resourceUrl, {}, {
-            'diagrams': { method: 'GET', isArray: true, params: {id:'@id', action: 'diagrams'}},
+            'addDiagram': { method: 'POST', params: {prjId:'@prjId', action: 'diagrams'}},
+            'diagrams': { method: 'GET', isArray: true, params: {prjId:'@prjId', action: 'diagrams'}},
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',

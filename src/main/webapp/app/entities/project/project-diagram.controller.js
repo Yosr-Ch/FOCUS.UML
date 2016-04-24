@@ -9,9 +9,11 @@
 
     function ProjectDiagramsController($scope, $rootScope, $stateParams, diagrams, Project, User, Diagram) {
         var vm = this;
+        console.log('bbbbbbbbbbbb'+$stateParams.prjId);
+        vm.projectId = $stateParams.prjId;
         vm.diagrams = diagrams;
-        vm.load = function (id) {
-            Project.diagrams({id: id}, function(result) {
+        vm.load = function (prjId) {
+            Project.diagrams({prjId: prjId}, function(result) {
                 vm.diagrams = result;
             });
         };

@@ -6278,7 +6278,7 @@ Diagram.prototype.updateHeightCanvas = function() {
         this._clearMotion();
         this._height = b
     } else {
-        b = (b > 580) ? b : 580;
+        b = (b > 700) ? b : 700;
         this._div.style.height = b + "px";
         this._div.childNodes[0].height = b;
         this._div.childNodes[1].height = b;

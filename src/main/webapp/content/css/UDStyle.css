@@ -44,10 +44,10 @@
  [UDCore] Div container for Canvas
 *****************************************/
 div.ud_diagram_div {
-  position: relative;
-  float: left;
-  background: #ffffff;
-  border: 1px solid black;
+    position: relative;
+    float: left;
+    background: #ffffff;
+    border: 1px solid black;
 }
 
 
@@ -56,9 +56,9 @@ div.ud_diagram_div {
  [UDCore] Canvas elements style
 *****************************************/
 canvas.ud_diagram_canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
 }
 
@@ -68,396 +68,396 @@ canvas.ud_diagram_canvas {
   [UDCore] Pop-up Windows Styles
 *****************************************/
 .ud_popup {
-  min-width: 300px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-}
-
-.ud_popupDirection {
-  min-width: 200px;
-  height: 100px;
-  margin: .4em 0;
-  aling: center;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-}
-
-.ud_popupColor {
-  min-width: 150px;
-  height: 120px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-  clear: both;
-}
-
-.ud_popupStyle {
-  min-width: 150px;
-  height: 200px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-  clear: both;
-}
-
-.ud_popupLineStyle {
-  min-width: 150px;
-  height: 190px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 20px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-  clear: both;
-}
-
-#divBlock1 {
-  float: left;
-  display: inline;
-  min-width: 150px;
-  height: 100px;
-}
-
-#divBlock2 {
-  float: left;
-  display: inline;
-  min-width: 100px;
-  height: 100px;
-}
-
-#divNavegability {
-  float: center;
-  margin: .4em 0;
-}
-
-.ud_contextualMenu {
-  min-width: 100px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-}
-
-.ud_contextualMenuItem {
-  min-height: 20px;
-  min-width: 100px;
-  padding: 1px;
-}
-
-.ud_contextualMenuItem span{
-  min-height: 20px;
-  min-width: 100px;
-  padding: 3px;
-}
-
-.ud_contextualMenuItem:hover{
-  background: #ccccff;
-}
-
-.ud_popup label {
-  width: 30%;
-  float: left;
-}
-
-.ud_popupLineStyle input{
-  margin: 10px 10px;
-}
-
-#divNavegability input{
-  margin: 10px;
-
- }
-
-@media only screen and (max-width: 350px), only screen and (max-device-width: 350px){
-  .ud_popup {
     min-width: 300px;
     margin: .4em 0;
     top: 0px;
     left: 0px;
     position: fixed;
     padding: 10px;
+    background: #b1cad5;
     border: 1px solid black;
     font-size: 0.8em;
-  }
+}
 
-  .ud_popupDirection {
-    min-width: 100px;
-    height: 150px;
+.ud_popupDirection {
+    min-width: 200px;
+    height: 100px;
     margin: .4em 0;
     aling: center;
     top: 0px;
     left: 0px;
     position: fixed;
     padding: 10px;
+    background: #b1cad5;
     border: 1px solid black;
     font-size: 0.8em;
-  }
+}
 
-  .ud_popupColor {
-    min-width: 100px;
+.ud_popupColor {
+    min-width: 150px;
+    height: 120px;
+    margin: .4em 0;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    padding: 10px;
+    background: #b1cad5;
+    border: 1px solid black;
+    font-size: 0.8em;
+    clear: both;
+}
+
+.ud_popupStyle {
+    min-width: 150px;
     height: 200px;
     margin: .4em 0;
     top: 0px;
     left: 0px;
     position: fixed;
     padding: 10px;
+    background: #b1cad5;
     border: 1px solid black;
     font-size: 0.8em;
     clear: both;
-  }
+}
 
-  .ud_popupStyle {
-    width: 100px;
-    height: 400px;
-    margin: .4em 0;
-    top: 0px;
-    left: 0px;
-    position: center;
-    padding: 10px;
-    border: 1px solid black;
-    font-size: 0.8em;
-    clear: both;
-  }
-
-  .ud_popupLineStyle {
-    min-width: 100px;
-    height: 260px;
+.ud_popupLineStyle {
+    min-width: 150px;
+    height: 190px;
     margin: .4em 0;
     top: 0px;
     left: 0px;
     position: fixed;
     padding: 20px;
+    background: #b1cad5;
     border: 1px solid black;
     font-size: 0.8em;
     clear: both;
-  }
+}
 
-  #divBlock1 {
-  float: left;
-  display: inline;
-  min-width: 150px;
-  height: 100px;
-  }
+#divBlock1 {
+    float: left;
+    display: inline;
+    min-width: 150px;
+    height: 100px;
+}
 
-  #divBlock2 {
-    visibility:hidden;
-  }
+#divBlock2 {
+    float: left;
+    display: inline;
+    min-width: 100px;
+    height: 100px;
+}
 
-  #divNavegability {
+#divNavegability {
     float: center;
     margin: .4em 0;
-  }
+}
 
-  .ud_contextualMenu {
+.ud_contextualMenu {
     min-width: 100px;
     margin: .4em 0;
     top: 0px;
     left: 0px;
     position: fixed;
+    background: #b1cad5;
     border: 1px solid black;
-    font-size: 1.2em;
-  }
-
-  .ud_contextualMenuItem {
-    min-height: 20px;
-    min-width: 100px;
-    padding: 1px;
-  }
-
-  .ud_contextualMenuItem span{
-    min-height: 20px;
-    min-width: 100px;
-    padding: 3px;
-  }
-
-  .ud_contextualMenuItem:hover{
-    background: #ccccff;
-  }
-
-  .ud_popup label {
-    width: 30%;
-    float: left;
-  }
-
-  .ud_popupLineStyle input{
-    aling: center;
-    display: inline-block;
-  }
-
-  .ud_popupStyle label{
-   aling: center;
-   display: inline-block;
-   }
-
-
-  .ud_popupStyle div{
-   aling: center;
-   display: inline-block;
-  }
-
-
-  #divNavegability input{
-    margin: 10px;
-
-   }
-}
-
-@media only screen and (max-width: 600px), only screen and (max-device-width: 600px){
-.ud_popup {
-  min-width: 300px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-}
-
-.ud_popupDirection {
-  min-width: 200px;
-  height: 100px;
-  margin: .4em 0;
-  aling: center;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-
-}
-
-.ud_popupColor {
-  min-width: 150px;
-  height: 120px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-  clear: both;
-}
-
-.ud_popupStyle {
-  min-width: 150px;
-  height: 400px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 10px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-  clear: both;
-}
-
-.ud_popupLineStyle {
-  min-width: 150px;
-  height: 190px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  padding: 20px;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 0.8em;
-  clear: both;
-}
-
-#divBlock1 {
-  float: left;
-  min-width: 150px;
-  height: 100px;
-}
-
-#divBlock2 {
-  float: left;
-  position: relative;
-  top: -100px;
-  left: 300px;
-  min-width: 100px;
-  height: 100px;
-}
-
-#divNavegability {
-  float: center;
-  margin: .4em 0;
-}
-
-.ud_contextualMenu {
-  min-width: 100px;
-  margin: .4em 0;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  background: #b1cad5;
-  border: 1px solid black;
-  font-size: 1.2em;
+    font-size: 0.8em;
 }
 
 .ud_contextualMenuItem {
-  min-height: 20px;
-  min-width: 100px;
-  padding: 1px;
+    min-height: 20px;
+    min-width: 100px;
+    padding: 1px;
 }
 
 .ud_contextualMenuItem span{
-  min-height: 20px;
-  min-width: 100px;
-  padding: 3px;
+    min-height: 20px;
+    min-width: 100px;
+    padding: 3px;
 }
 
 .ud_contextualMenuItem:hover{
-  background: #ccccff;
+    background: #ccccff;
 }
 
 .ud_popup label {
-  width: 30%;
-  float: left;
+    width: 30%;
+    float: left;
 }
 
 .ud_popupLineStyle input{
-  margin: 10px 10px;
+    margin: 10px 10px;
 }
 
 #divNavegability input{
-  margin: 10px;
- }
+    margin: 10px;
+
+}
+
+@media only screen and (max-width: 350px), only screen and (max-device-width: 350px){
+    .ud_popup {
+        min-width: 300px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 0.8em;
+    }
+
+    .ud_popupDirection {
+        min-width: 100px;
+        height: 150px;
+        margin: .4em 0;
+        aling: center;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 0.8em;
+    }
+
+    .ud_popupColor {
+        min-width: 100px;
+        height: 200px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 0.8em;
+        clear: both;
+    }
+
+    .ud_popupStyle {
+        width: 100px;
+        height: 400px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: center;
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 0.8em;
+        clear: both;
+    }
+
+    .ud_popupLineStyle {
+        min-width: 100px;
+        height: 260px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 20px;
+        border: 1px solid black;
+        font-size: 0.8em;
+        clear: both;
+    }
+
+    #divBlock1 {
+        float: left;
+        display: inline;
+        min-width: 150px;
+        height: 100px;
+    }
+
+    #divBlock2 {
+        visibility:hidden;
+    }
+
+    #divNavegability {
+        float: center;
+        margin: .4em 0;
+    }
+
+    .ud_contextualMenu {
+        min-width: 100px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        border: 1px solid black;
+        font-size: 1.2em;
+    }
+
+    .ud_contextualMenuItem {
+        min-height: 20px;
+        min-width: 100px;
+        padding: 1px;
+    }
+
+    .ud_contextualMenuItem span{
+        min-height: 20px;
+        min-width: 100px;
+        padding: 3px;
+    }
+
+    .ud_contextualMenuItem:hover{
+        background: #ccccff;
+    }
+
+    .ud_popup label {
+        width: 30%;
+        float: left;
+    }
+
+    .ud_popupLineStyle input{
+        aling: center;
+        display: inline-block;
+    }
+
+    .ud_popupStyle label{
+        aling: center;
+        display: inline-block;
+    }
+
+
+    .ud_popupStyle div{
+        aling: center;
+        display: inline-block;
+    }
+
+
+    #divNavegability input{
+        margin: 10px;
+
+    }
+}
+
+@media only screen and (max-width: 600px), only screen and (max-device-width: 600px){
+    .ud_popup {
+        min-width: 300px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        background: #b1cad5;
+        border: 1px solid black;
+        font-size: 0.8em;
+    }
+
+    .ud_popupDirection {
+        min-width: 200px;
+        height: 100px;
+        margin: .4em 0;
+        aling: center;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        background: #b1cad5;
+        border: 1px solid black;
+        font-size: 0.8em;
+
+    }
+
+    .ud_popupColor {
+        min-width: 150px;
+        height: 120px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        background: #b1cad5;
+        border: 1px solid black;
+        font-size: 0.8em;
+        clear: both;
+    }
+
+    .ud_popupStyle {
+        min-width: 150px;
+        height: 400px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 10px;
+        background: #b1cad5;
+        border: 1px solid black;
+        font-size: 0.8em;
+        clear: both;
+    }
+
+    .ud_popupLineStyle {
+        min-width: 150px;
+        height: 190px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        padding: 20px;
+        background: #b1cad5;
+        border: 1px solid black;
+        font-size: 0.8em;
+        clear: both;
+    }
+
+    #divBlock1 {
+        float: left;
+        min-width: 150px;
+        height: 100px;
+    }
+
+    #divBlock2 {
+        float: left;
+        position: relative;
+        top: -100px;
+        left: 300px;
+        min-width: 100px;
+        height: 100px;
+    }
+
+    #divNavegability {
+        float: center;
+        margin: .4em 0;
+    }
+
+    .ud_contextualMenu {
+        min-width: 100px;
+        margin: .4em 0;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        background: #b1cad5;
+        border: 1px solid black;
+        font-size: 1.2em;
+    }
+
+    .ud_contextualMenuItem {
+        min-height: 20px;
+        min-width: 100px;
+        padding: 1px;
+    }
+
+    .ud_contextualMenuItem span{
+        min-height: 20px;
+        min-width: 100px;
+        padding: 3px;
+    }
+
+    .ud_contextualMenuItem:hover{
+        background: #ccccff;
+    }
+
+    .ud_popup label {
+        width: 30%;
+        float: left;
+    }
+
+    .ud_popupLineStyle input{
+        margin: 10px 10px;
+    }
+
+    #divNavegability input{
+        margin: 10px;
+    }
 }/*body {
     background-image: url("/content/images/img/bb.png");
 }*/
@@ -468,19 +468,20 @@ canvas.ud_diagram_canvas {
 *********************/
 
 div#ud_tools_div {
-  width: 200px;
-  float: left;
+    width: 200px;
+    float: left;
 }
 
 
 div#ud_container_div {
-  float: left;
+    float: left;
+    width: 50%;
 }
 
 
 div#ud_selector_div {
-  min-height: 25px;
-  max-width: 900px;
+    min-height: 25px;
+    max-width: 900px;
 }
 
 
@@ -489,48 +490,48 @@ div#ud_selector_div {
 ******************************/
 
 ul#ud_tools_ul1 {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul#ud_tools_ul1 li a {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 ul#ud_tools_ul1 li {
-  padding: 3px;
-  list-style: none;
-  font-size: 0.75em;
+    padding: 3px;
+    list-style: none;
+    font-size: 1em;
 }
 
 ul#ud_tools_ul1 li:hover {
-  cursor: pointer;
-  background: white;
+    cursor: pointer;
+    background: white;
 }
 
 
 ul#ud_tools_ul2 {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul#ud_tools_ul2 li a {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 ul#ud_tools_ul2 li {
-  padding: 3px;
-  list-style: none;
-  font-size: 0.75em;
+    padding: 3px;
+    list-style: none;
+    font-size: 1em;
 }
 
 ul#ud_tools_ul2 li:hover {
-  cursor: pointer;
-  background: white;
+    cursor: pointer;
+    background: white;
 }
 
 
 div#ud_tools_div h1 {
-  cursor: pointer;
-  font-size: 0.9em;
+    cursor: pointer;
+    font-size: 1.5em;
 }
 
 
@@ -539,35 +540,35 @@ div#ud_tools_div h1 {
  Selector Diagram menu
 ******************************/
 div#ud_selector_div {
-  border-left: 1px solid black;
+    border-left: 1px solid black;
 }
 
 
 ul#ud_selector_ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
 
 ul#ud_selector_ul li {
-  float: left;
-  min-width: 100px;
-  border: 1px solid black;
-  border-bottom: none;
-  border-left: none;
-  background: #ccd5d9;
+    float: left;
+    min-width: 100px;
+    border: 1px solid black;
+    border-bottom: none;
+    border-left: none;
+    background: #ccd5d9;
 
-  font-size: 0.7em;
+    font-size: 0.9em;
 }
 
 
 ul#ud_selector_ul li a {
-  display: block;
-  margin: 5px;
-  text-decoration: none;
-  color: black;
+    display: block;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -578,7 +579,7 @@ ul#ud_selector_ul li:hover {
 
 
 ul#ud_selector_ul li.active {
-  background: #fff4ac;
+    background: #bffeff;
 }
 
 
@@ -586,45 +587,45 @@ ul#ud_selector_ul li.active {
  delete button
 **********************/
 div#ud_delete_div {
-  position: absolute;
-  top: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 
-  width: 15px;
-  height: 15px;
+    width: 15px;
+    height: 15px;
 
-  border: 1px solid black;
-  border-right: none;
-  border-top: none;
+    border: 1px solid black;
+    border-right: none;
+    border-top: none;
 
-  background: url('/content/images/img/delete_button.png') no-repeat;
+    background: url('/content/images/img/delete_button.png') no-repeat;
 }
 
 div#ud_delete_div:hover {
-  background-color: #fff4ac;
+    background-color: #fff4ac;
 }
 
 /*********************
  update button
 **********************/
 div#ud_update_div {
-  position: absolute;
-  top: 0;
-/*
-  right: 15;
-*/
-  width: 15px;
-  height: 15px;
+    position: absolute;
+    top: 0;
+    /*
+      right: 15;
+    */
+    width: 15px;
+    height: 15px;
 
-  border: 1px solid black;
-  border-right: none;
-  border-top: none;
+    border: 1px solid black;
+    border-right: none;
+    border-top: none;
 
-  background: url('/content/images/img/update_button.png') no-repeat;
+    background: url('/content/images/img/update_button.png') no-repeat;
 }
 
 div#ud_update_div:hover {
-  background-color: #fff4ac;
+    background-color: #fff4ac;
 }
 
 
@@ -632,3 +633,14 @@ div#ud_update_div:hover {
 Container
 ************************/
 
+.well{
+    min-height: 20px;
+    min-width: 105%;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}

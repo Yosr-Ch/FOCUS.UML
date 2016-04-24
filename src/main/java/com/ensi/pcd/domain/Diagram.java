@@ -2,14 +2,13 @@ package com.ensi.pcd.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Type;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
-
-import com.ensi.pcd.domain.enumeration.Visibility;
 
 /**
  * A Diagram.
@@ -30,15 +29,16 @@ public class Diagram implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "visibility")
-    private Visibility visibility;
-
+    //@Size(max=20480)
+    @Lob @Type(type="org.hibernate.type.TextType")
     @Column(name = "content")
     private String content;
 
     @Column(name = "validation")
     private Boolean validation;
+
+    @Column(name = "visibility")
+    private Boolean visibility;
 
     @ManyToOne
     private Project project;
@@ -59,14 +59,6 @@ public class Diagram implements Serializable {
         this.name = name;
     }
 
-    public Visibility getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(Visibility visibility) {
-        this.visibility = visibility;
-    }
-
     public String getContent() {
         return content;
     }
@@ -81,6 +73,14 @@ public class Diagram implements Serializable {
 
     public void setValidation(Boolean validation) {
         this.validation = validation;
+    }
+
+    public Boolean isVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Boolean visibility) {
+        this.visibility = visibility;
     }
 
     public Project getProject() {
@@ -116,9 +116,9 @@ public class Diagram implements Serializable {
         return "Diagram{" +
             "id=" + id +
             ", name='" + name + "'" +
-            ", visibility='" + visibility + "'" +
             ", content='" + content + "'" +
             ", validation='" + validation + "'" +
+            ", visibility='" + visibility + "'" +
             '}';
     }
 }

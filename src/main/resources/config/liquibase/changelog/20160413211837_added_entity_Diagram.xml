@@ -25,15 +25,15 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="visibility" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="content" type="varchar(255)">
+            <column name="content" type="text">
                 <constraints nullable="true" />
             </column>
             
             <column name="validation" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="visibility" type="bit">
                 <constraints nullable="true" />
             </column>
             

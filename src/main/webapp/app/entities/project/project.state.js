@@ -27,7 +27,7 @@
             })
             .state('project-diagram', {
                 parent: 'entity',
-                url: '/project/{id}/diagrams',
+                url: '/project/{prjId}/diagrams',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Diagram'
@@ -41,7 +41,7 @@
                 },
                 resolve: {
                     diagrams: ['$stateParams', 'Project', function ($stateParams, Project) {
-                        return Project.diagrams({id: $stateParams.id});
+                        return Project.diagrams({prjId: $stateParams.prjId});
                     }]
                 }
             })
@@ -63,6 +63,32 @@
                     entity: ['$stateParams', 'Project', function ($stateParams, Project) {
                         return Project.get({id: $stateParams.id});
                     }]
+                }
+            })
+            .state('diagram-editor', {
+                parent: 'entity',
+                url: '/project/{prjId}/diagrams/diagram-editor',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'Diagram'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/diagram/diagram-editor.html',
+                        controller: 'DiagramEditorController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    entity: function () {
+                        return {
+                            name: null,
+                            visibility: null,
+                            content: null,
+                            validation: null,
+                            id: null
+                        };
+                    }
                 }
             })
             .state('project.new', {

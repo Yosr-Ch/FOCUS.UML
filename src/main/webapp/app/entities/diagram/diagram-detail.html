@@ -3,24 +3,25 @@
     <h2><span>Diagram</span> {{vm.diagram.id}}</h2>
     <hr>
     <dl class="dl-horizontal">
-        <dt><span>Name</dt></dt>
+        <dt><span>Name</span></dt>
         <dd>
-            <span>{{vm.diagram.name}}<span>
+            <span>{{vm.diagram.name}}</span>
         </dd>
         <hr>
-        <dt><span>Visibility</dt></dt>
+        <dt><span>Content</span></dt>
         <dd>
-            <span translate="{{'demoApp.Visibility.' + vm.diagram.visibility}}">{{vm.diagram.visibility}}</span>
+            <span>{{vm.diagram.content}}</span>
         </dd>
         <hr>
-        <dt><span>Content</dt></dt>
+        <dt><span>Validation</span></dt>
         <dd>
-            <span>{{vm.diagram.content}}<span>
+            <span><i class="glyphicon" ng-class="{'glyphicon-ok text-success': diagram.validation,
+                                                    'glyphicon-remove text-danger': !diagram.validation}"></i></span>
         </dd>
         <hr>
-        <dt><span>Validation</dt></dt>
+        <dt><span>Visibility</span></dt>
         <dd>
-            <span>{{vm.diagram.validation}}<span>
+            <span>{{vm.diagram.visibility}}</span>
         </dd>
         <hr>
         <dt><span>project</span></dt>

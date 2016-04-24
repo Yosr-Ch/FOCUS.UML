@@ -6,7 +6,7 @@
 //------------------------------------UDAPPLICATION:3rd layer----------------------------------
 
 var ApplicationValues = {
-    element_color: "#ffffbb",
+    element_color: "#bbffff",
     dialog: new Dialog()
 };
 var Application = function(a) {
@@ -303,13 +303,22 @@ Application.prototype._generateGeneralMenu = function() {
         //----------------------------------------SUSPECTED function--------------------------------------------------
         var r = function(v) {
             k.value = m.getXMLString();
+            //k.value = new XMLSerializer().serializeToString(k);
             k.select()
         };
         //------------------------------------------------------------------------------------------------------------
         var l = function(v) {
-            k.value = m.getCurrentXMLString();
+            k.value = m.getCurrentXMLString().toString()+ "HELLOOOOOOOOO!";
             k.select()
         };
+
+        /**
+         * @return {string}
+         */
+        var XMLMaker = function(){
+            return  m.getCurrentXMLString().toString()+ "HELLOOOOOOOOO!";
+        };
+
         var o = function(v) {
             document.body.removeChild(h)
         };

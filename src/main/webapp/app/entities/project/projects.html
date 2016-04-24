@@ -3,7 +3,7 @@
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-4 no-padding-left">
+                <div class="col-xs-8 no-padding-left">
                 <button class="btn btn-primary" ui-sref="project.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span class="hidden-xs" >
@@ -11,7 +11,7 @@
                     </span>
                 </button>
             </div>
-            <div class="col-xs-8 no-padding-right">
+            <div class="col-xs-4 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
                         <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
@@ -32,34 +32,34 @@
     </div>
     <br/>
     <div class="table-responsive">
-        <table class="jh-table table table-striped">
+        <table class="jh-table table table-striped ">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span>Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="creation_date"><span translate="demoApp.project.creation_date">Creation date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="user.id"><span>user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.id" has-authority="ROLE_ADMIN"><span>user</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
-                <tr ng-repeat="project in vm.projects track by project.id" ng-click=" ">
+                <tr ng-repeat="project in vm.projects track by project.id" >
                     <td><a ui-sref="project-detail({id:project.id})">{{project.id}}</a></td>
                     <td>{{project.name}}</td>
                     <td>{{project.description}}</td>
                     <td>{{project.creation_date | date:'medium'}}</td>
-                    <td>
+                    <td has-authority="ROLE_ADMIN">
                         {{project.user.id}}
                     </td>
                     <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
+                        <div class="btn-group flex-btn-group-container" >
                             <button type="submit"
-                                    ui-sref="project-diagram({id:project.id})"
-                                    class="btn btn-info btn-sm">
+                                    ui-sref="project-diagram({prjId:project.id})"
+                                    class="btn btn-success btn-sm">
                                 <span class="glyphicon glyphicon-list-alt"></span>
-                                <span class="hidden-xs hidden-sm">Diags</span>
-                            </button>
+                                <span class="hidden-xs hidden-sm">Diagrams</span>
+                            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <button type="submit"
                                     ui-sref="project-detail({id:project.id})"
                                     class="btn btn-info btn-sm">

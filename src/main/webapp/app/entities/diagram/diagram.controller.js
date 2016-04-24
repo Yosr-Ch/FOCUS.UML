@@ -5,9 +5,9 @@
         .module('demoApp')
         .controller('DiagramController', DiagramController);
 
-    DiagramController.$inject = ['$scope', '$state', 'Diagram', 'DiagramSearch', 'ParseLinks', 'AlertService'];
+    DiagramController.$inject = ['$scope', '$state','$stateParams', 'Diagram', 'DiagramSearch', 'ParseLinks', 'AlertService'];
 
-    function DiagramController ($scope, $state, Diagram, DiagramSearch, ParseLinks, AlertService) {
+    function DiagramController ($scope, $state, $stateParams, Diagram, DiagramSearch, ParseLinks, AlertService) {
         var vm = this;
         vm.diagrams = [];
         vm.predicate = 'id';
@@ -81,6 +81,8 @@
         };
 
         vm.loadAll();
+
+
 
     }
 })();

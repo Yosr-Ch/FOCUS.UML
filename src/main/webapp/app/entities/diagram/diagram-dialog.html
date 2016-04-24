@@ -26,13 +26,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_visibility">Visibility</label>
-            <select class="form-control" name="visibility" ng-model="vm.diagram.visibility" id="field_visibility">
-                <option value="pub">pub</option>
-                <option value="prv">prv</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="control-label" for="field_content">Content</label>
             <input type="text" class="form-control" name="content" id="field_content"
                     ng-model="vm.diagram.content"
@@ -44,8 +37,23 @@
                     ng-model="vm.diagram.validation"
                      />
         </div>
+        <!--div class="form-group">
+            <label class="control-label" >Visibility</label>
+            <div class="form-inline">
+                <label>
+                    <input type="radio" class="form-control" name="visibility"
+                                  ng-model="vm.diagram.visibility" value="public"
+                />&nbsp; Public
+                </label><br>
+                <label>
+                    <input type="radio" class="form-control" name="visibility"
+                                   ng-model="vm.diagram.visibility" value="private">
+                    &nbsp;Private
+                </label>
+            </div>
+        </div-->
 
-        <div class="form-group">
+        <div class="form-group" has-authority="ROLE_ADMIN">
             <label for="field_project">project</label>
             <select class="form-control" id="field_project" name="project" ng-model="vm.diagram.project" ng-options="project as project.id for project in vm.projects track by project.id">
                 <option value=""></option>

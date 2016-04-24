@@ -6,6 +6,7 @@
 
     Diagram.$inject = ['$resource'];
 
+
     function Diagram ($resource) {
         var resourceUrl =  'api/diagrams/:id';
 

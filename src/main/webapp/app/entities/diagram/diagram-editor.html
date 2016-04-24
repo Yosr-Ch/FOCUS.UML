@@ -34,4 +34,35 @@
 
 
 </body-->
-    <div id="umldiagram"> <h2>Test ! </h2></div>
+    <div>
+        <h2>Diagrams editor</h2>
+        <jhi-alert></jhi-alert>
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="no-padding-left">
+                    <form name="editorForm" role="form" novalidate ng-submit="vm.save()">
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-primary" type="submit"> <!--ng-click="myFunc()" ui-sref="project.new"-->
+                                <span class="glyphicon glyphicon-save"></span>
+                                <span class="hidden-xs" >
+                                    Save
+                                </span>
+                            </button>
+                            <button class="btn btn-success"> <!-- ui-sref="project.new" -->
+                                <span class="glyphicon glyphicon-check"></span>
+                                <span class="hidden-xs" >
+                                    Validate
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="umldiagram">
+                    <div style="margin-top: 5%;">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

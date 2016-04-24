@@ -223,12 +223,12 @@ ul#strengthBar {
 /* Makes toolbar not wrap on smaller screens
  http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
 .flex-btn-group-container {
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
-   -webkit-justify-content: flex-end;
-   justify-content: flex-end;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .jh-table > tbody > tr > td {
@@ -265,15 +265,22 @@ ul#strengthBar {
 }
 /* end of ui bootstrap tweaks */
 /*.footer{
+    position: relative;
     bottom: 0;
-    color: #666;
-    background: #eee;
-    border-top: 1px solid silver;
     width: 100%;
-    padding: 10px 10px 0;
-    text-align: center;
-    z-index: 2;
+    height: 60px;
+    background-color: #f5f5f5;
 }*/
+
+.p-r {
+    padding-right: 10px;
+}
+
+.query{
+    width: 40%;
+    margin-left: 60%;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */
 
 /* jhipster-needle-css-add-main JHipster will add new css style */

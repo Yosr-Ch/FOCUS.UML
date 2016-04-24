@@ -1,8 +1,8 @@
 <div ng-cloak>
     <div class="row">
-        <div class="col-md-4">
+        <!--div class="col-md-4">
             <!--span class="hipster img-responsive img-rounded"></span-->
-        </div>
+        <!--/div>
         <div class="col-md-8">
             <h1>Welcome!</h1>
             <p class="lead">This is your homepage</p>
@@ -35,7 +35,18 @@
 
             <p>
              <span>If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank">Github</a>!
-            </p-->
+            </p>
+        </div-->
+
+        <div style="height: 275px">
+            <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <!--p>{{slide.text}}</p-->
+                    </div>
+                </uib-slide>
+            </uib-carousel>
         </div>
     </div>
 </div>

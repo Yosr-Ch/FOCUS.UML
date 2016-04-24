@@ -3,6 +3,7 @@ package com.ensi.pcd.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.ensi.pcd.domain.Diagram;
 import com.ensi.pcd.repository.DiagramRepository;
+import com.ensi.pcd.repository.ProjectRepository;
 import com.ensi.pcd.repository.search.DiagramSearchRepository;
 import com.ensi.pcd.web.rest.util.HeaderUtil;
 import com.ensi.pcd.web.rest.util.PaginationUtil;
@@ -40,6 +41,9 @@ public class DiagramResource {
     @Inject
     private DiagramSearchRepository diagramSearchRepository;
 
+    @Inject
+    private ProjectRepository projectRepository;
+
     /**
      * POST  /diagrams : Create a new diagram.
      *
@@ -59,6 +63,34 @@ public class DiagramResource {
         Diagram result = diagramRepository.save(diagram);
         diagramSearchRepository.save(result);
         return ResponseEntity.created(new URI("/api/diagrams/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("diagram", result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * POST  /diagrams : Create a new diagram.
+     *
+     * @param diagram the diagram to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new diagram, or with status 400 (Bad Request) if the diagram has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @RequestMapping(value = "/projects/{prjId}/diagrams",
+        method = RequestMethod.POST,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Diagram> saveDiagram(@PathVariable Long prjId, @Valid @RequestBody Diagram diagram) throws URISyntaxException {
+        log.debug("REST request to save Diagram :BBBBBBBBB {} for project with id", prjId);
+        if (diagram.getId() != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("diagram", "idexists", "A new diagram cannot already have an ID")).body(null);
+        }
+        //Diagram result = diagramRepository.save(diagram);
+        /*user.addRole(role);
+      userRepository.save(user);*/
+        //Diagram diag = diagram;
+        diagram.setProject(projectRepository.findByUserIsCurrentUserAndId(prjId));
+        Diagram result = diagramRepository.save(diagram);
+        diagramSearchRepository.save(result);
+        return ResponseEntity.created(new URI("/api/projects/"+prjId.toString()+"/diagrams" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("diagram", result.getId().toString()))
             .body(result);
     }
@@ -107,15 +139,15 @@ public class DiagramResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/projects/{id}/diagrams",
+    @RequestMapping(value = "/projects/{prjId}/diagrams",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Diagram>> getDiagramsByProjectId(@PathVariable Long id, Pageable pageable)
+    public ResponseEntity<List<Diagram>> getDiagramsByProjectId(@PathVariable Long prjId, Pageable pageable)
         throws URISyntaxException {
-        log.debug("REST request to get Diagrams of a project : {}", id);
-        Page<Diagram> page = diagramRepository.findByProjectId(id, pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/projects/"+id.toString()+"/diagrams");
+        log.debug("REST request to get Diagrams of a project : {}", prjId);
+        Page<Diagram> page = diagramRepository.findByProjectId(prjId, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/projects/"+prjId.toString()+"/diagrams");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 

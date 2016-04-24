@@ -46,9 +46,9 @@
                 }]
             }
         })
-            .state('diagram-editor', {
+            /*.state('diagram-editor', {
                 parent: 'entity',
-                url: '/diagram-editor',
+                url: '/project/{id}/diagrams/diagram-editor',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Diagram'
@@ -59,9 +59,19 @@
                         controller: 'DiagramEditorController',
                         controllerAs: 'vm'
                     }
+                },
+                resolve: {
+                    entity: function () {
+                        return {
+                            name: null,
+                            visibility: null,
+                            content: null,
+                            validation: null,
+                            id: null
+                        };
+                    }
                 }
-
-            })
+            })*/
         .state('diagram.new', {
             parent: 'diagram',
             url: '/new',

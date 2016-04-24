@@ -6,6 +6,39 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/target/generated-sources" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/AsyncConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/CacheConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/CloudDatabaseConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/DatabaseConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/ElasticSearchConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/JacksonConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/LocaleConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/LoggingAspectConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/LoggingConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/MetricsConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/SecurityConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/apidoc/SwaggerConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/ThymeleafConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/WebConfigurer.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/WebsocketConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ensi/pcd/config/WebsocketSecurityConfiguration.java</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map />
+        <naming-strategy-map />
       </configuration>
     </facet>
   </component>
@@ -17,6 +50,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target/elasticsearch" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
     </content>

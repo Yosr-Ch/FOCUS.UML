@@ -18,7 +18,17 @@
                     </a>
                 </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                <li ng-class="{active: vm.$state.includes('entity')}" has-authority="ROLE_USER">
+                    <a ui-sref="project" data-toggle="collapse" data-target=".navbar-collapse.in">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm">
+                                Dashboard
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li ng-class="{active: vm.vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
                             <span class="glyphicon glyphicon-th-list"></span>
@@ -30,9 +40,9 @@
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active" ><a ui-sref="project" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
-                        &#xA0;<span >Project</span></a></li>
+                            &#xA0;<span >Project</span></a></li>
                         <li ui-sref-active="active" ><a ui-sref="diagram" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
-                        &#xA0;<span >Diagram</span></a></li>
+                            &#xA0;<span >Diagram</span></a></li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -73,7 +83,7 @@
                         <li ui-sref-active="active"><a ui-sref="user-management" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-user"></span>
                             &#xA0;<span>User management</span></a></li>
                         <li ui-sref-active="active"><a ui-sref="jhi-tracker" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-eye-open"></span>
-                                &nbsp;<span>User tracker</span></a></li>
+                            &nbsp;<span>User tracker</span></a></li>
                         <!--li ui-sref-active="active"><a ui-sref="jhi-metrics" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-dashboard"></span>
                             &#xA0;<span>Metrics</span></a></li>
                         <li ui-sref-active="active"><a ui-sref="jhi-health" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-heart"></span>
