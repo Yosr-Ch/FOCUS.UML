@@ -13,7 +13,7 @@
         vm.users = User.query();
         vm.diagrams = Diagram.query();
         vm.load = function(id) {
-            Project.get({id : id}, function(result) {
+            Project.getPrj({prjId : id}, function(result) {
                 vm.project = result;
             });
         };

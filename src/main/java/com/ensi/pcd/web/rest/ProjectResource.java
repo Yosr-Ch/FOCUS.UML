@@ -130,18 +130,18 @@ public class ProjectResource {
     }
 
     /**
-     * GET  /projects/:id : get the "id" project.
+     * GET  /projects/:prjId : get the "prjId" project.
      *
-     * @param id the id of the project to retrieve
+     * @param prjId the id of the project to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the project, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/projects/{id}",
+    @RequestMapping(value = "/projects/{prjId}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Project> getProject(@PathVariable Long id) {
-        log.debug("REST request to get Project : {}", id);
-        Project project = projectRepository.findOne(id);
+    public ResponseEntity<Project> getProject(@PathVariable Long prjId) {
+        log.debug("REST request to get Project : {}", prjId);
+        Project project = projectRepository.findOne(prjId);
         return Optional.ofNullable(project)
             .map(result -> new ResponseEntity<>(
                 result,
@@ -150,20 +150,20 @@ public class ProjectResource {
     }
 
     /**
-     * DELETE  /projects/:id : delete the "id" project.
+     * DELETE  /projects/:prjId : delete the "id" project.
      *
-     * @param id the id of the project to delete
+     * @param prjId the id of the project to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @RequestMapping(value = "/projects/{id}",
+    @RequestMapping(value = "/projects/{prjId}",
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
-        log.debug("REST request to delete Project : {}", id);
-        projectRepository.delete(id);
-        projectSearchRepository.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("project", id.toString())).build();
+    public ResponseEntity<Void> deleteProject(@PathVariable Long prjId) {
+        log.debug("REST request to delete Project : {}", prjId);
+        projectRepository.delete(prjId);
+        projectSearchRepository.delete(prjId);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("project", prjId.toString())).build();
     }
 
     /**

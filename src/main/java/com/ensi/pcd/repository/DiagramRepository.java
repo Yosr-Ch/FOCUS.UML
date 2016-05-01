@@ -4,7 +4,6 @@ import com.ensi.pcd.domain.Diagram;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 /**
  * Spring Data JPA repository for the Diagram entity.
@@ -12,5 +11,5 @@ import org.springframework.data.jpa.repository.Query;
 public interface DiagramRepository extends JpaRepository<Diagram,Long> {
 
 
-    Page<Diagram> findByProjectId(Long id, Pageable pageable);
+    Page<Diagram> findByProjectId(Long prjId, Pageable pageable);
 }

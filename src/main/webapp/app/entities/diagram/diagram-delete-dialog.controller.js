@@ -14,7 +14,7 @@
             $uibModalInstance.dismiss('cancel');
         };
         vm.confirmDelete = function (id) {
-            Diagram.delete({id: id},
+            Diagram.delete({diagId: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

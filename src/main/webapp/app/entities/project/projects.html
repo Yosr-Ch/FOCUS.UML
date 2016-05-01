@@ -35,7 +35,7 @@
         <table class="jh-table table table-striped ">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id" has-authority="ROLE_ADMIN"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span>Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="creation_date"><span translate="demoApp.project.creation_date">Creation date</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -45,7 +45,7 @@
             </thead>
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
                 <tr ng-repeat="project in vm.projects track by project.id" >
-                    <td><a ui-sref="project-detail({id:project.id})">{{project.id}}</a></td>
+                    <td has-authority="ROLE_ADMIN"><a ui-sref="project-detail({prjId:project.id})">{{project.id}}</a></td>
                     <td>{{project.name}}</td>
                     <td>{{project.description}}</td>
                     <td>{{project.creation_date | date:'medium'}}</td>
@@ -61,19 +61,19 @@
                                 <span class="hidden-xs hidden-sm">Diagrams</span>
                             </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <button type="submit"
-                                    ui-sref="project-detail({id:project.id})"
+                                    ui-sref="project-detail({prjId:project.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm">View</span>
                             </button>
                             <button type="submit"
-                                    ui-sref="project.edit({id:project.id})"
+                                    ui-sref="project.edit({prjId:project.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm">Edit</span>
                             </button>
                             <button type="submit"
-                                    ui-sref="project.delete({id:project.id})"
+                                    ui-sref="project.delete({prjId:project.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm">Delete</span>

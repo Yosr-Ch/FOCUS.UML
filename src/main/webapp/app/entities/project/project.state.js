@@ -25,6 +25,26 @@
                 },
                 resolve: {}
             })
+            .state('project-detail', {
+                parent: 'entity',
+                url: '/project/{prjId}',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'Project'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/project/project-detail.html',
+                        controller: 'ProjectDetailController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    entity: ['$stateParams', 'Project', function ($stateParams, Project) {
+                        return Project.getPrj({prjId: $stateParams.prjId});
+                    }]
+                }
+            })
             .state('project-diagram', {
                 parent: 'entity',
                 url: '/project/{prjId}/diagrams',
@@ -42,26 +62,6 @@
                 resolve: {
                     diagrams: ['$stateParams', 'Project', function ($stateParams, Project) {
                         return Project.diagrams({prjId: $stateParams.prjId});
-                    }]
-                }
-            })
-            .state('project-detail', {
-                parent: 'entity',
-                url: '/project/{id}',
-                data: {
-                    authorities: ['ROLE_USER'],
-                    pageTitle: 'Project'
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'app/entities/project/project-detail.html',
-                        controller: 'ProjectDetailController',
-                        controllerAs: 'vm'
-                    }
-                },
-                resolve: {
-                    entity: ['$stateParams', 'Project', function ($stateParams, Project) {
-                        return Project.get({id: $stateParams.id});
                     }]
                 }
             })
@@ -90,6 +90,27 @@
                         };
                     }
                 }
+            })
+            .state('diagram-editor.edit', {
+                parent: 'project',
+                url: '/{prjId}/diagrams/{diagId}',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/diagram/diagram-editor.html',
+                        controller: 'DiagramEditorController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    entity: ['$stateParams', 'Diagram', function($stateParams, Diagram) {
+                        console.log('yossssssr  '+$stateParams.diagId);
+                        return Diagram.get({diagId : $stateParams.diagId}).$promise;
+                    }]
+                }
+
             })
             .state('project.new', {
                 parent: 'project',
@@ -123,7 +144,7 @@
             })
             .state('project.edit', {
                 parent: 'project',
-                url: '/{id}/edit',
+                url: '/{prjId}/edit',
                 data: {
                     authorities: ['ROLE_USER']
                 },
@@ -136,7 +157,7 @@
                         size: 'lg',
                         resolve: {
                             entity: ['Project', function (Project) {
-                                return Project.get({id: $stateParams.id});
+                                return Project.getPrj({prjId: $stateParams.prjId});
                             }]
                         }
                     }).result.then(function () {
@@ -148,7 +169,7 @@
             })
             .state('project.delete', {
                 parent: 'project',
-                url: '/{id}/delete',
+                url: '/{prjId}/delete',
                 data: {
                     authorities: ['ROLE_USER']
                 },
@@ -160,7 +181,7 @@
                         size: 'md',
                         resolve: {
                             entity: ['Project', function (Project) {
-                                return Project.get({id: $stateParams.id});
+                                return Project.getPrj({prjId: $stateParams.prjId});
                             }]
                         }
                     }).result.then(function () {

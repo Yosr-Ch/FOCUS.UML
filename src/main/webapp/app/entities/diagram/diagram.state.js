@@ -28,7 +28,7 @@
         })
         .state('diagram-detail', {
             parent: 'entity',
-            url: '/diagram/{id}',
+            url: '/diagram/{diagId}',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'Diagram'
@@ -42,7 +42,7 @@
             },
             resolve: {
                 entity: ['$stateParams', 'Diagram', function($stateParams, Diagram) {
-                    return Diagram.get({id : $stateParams.id});
+                    return Diagram.get({diagId : $stateParams.diagId});
                 }]
             }
         })
@@ -130,7 +130,7 @@
         })
         .state('diagram.delete', {
             parent: 'diagram',
-            url: '/{id}/delete',
+            url: '/{diagId}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
@@ -142,7 +142,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Diagram', function(Diagram) {
-                            return Diagram.get({id : $stateParams.id});
+                            return Diagram.get({diagId : $stateParams.diagId});
                         }]
                     }
                 }).result.then(function() {

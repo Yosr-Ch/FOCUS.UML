@@ -79,14 +79,11 @@ public class DiagramResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<Diagram> saveDiagram(@PathVariable Long prjId, @Valid @RequestBody Diagram diagram) throws URISyntaxException {
-        log.debug("REST request to save Diagram :BBBBBBBBB {} for project with id", prjId);
+        log.debug("REST request to save Diagram : {} for project with id", prjId);
         if (diagram.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("diagram", "idexists", "A new diagram cannot already have an ID")).body(null);
         }
         //Diagram result = diagramRepository.save(diagram);
-        /*user.addRole(role);
-      userRepository.save(user);*/
-        //Diagram diag = diagram;
         diagram.setProject(projectRepository.findByUserIsCurrentUserAndId(prjId));
         Diagram result = diagramRepository.save(diagram);
         diagramSearchRepository.save(result);
@@ -104,7 +101,34 @@ public class DiagramResource {
      * or with status 500 (Internal Server Error) if the diagram couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @RequestMapping(value = "/diagrams",
+    @RequestMapping(value = "/projects/{prjId}/diagrams",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Diagram> updateDiagram(@PathVariable Long prjId, @Valid @RequestBody Diagram diagram) throws URISyntaxException {
+        log.debug("REST request to update Diagram : {}", diagram);
+        if (diagram.getId() == null) {
+            return saveDiagram(prjId,diagram);
+        }
+        //Diagram result = diagramRepository.save(diagram);
+        //diagram.setProject(projectRepository.findByUserIsCurrentUserAndId(prjId));
+        Diagram result = diagramRepository.save(diagram);
+        diagramSearchRepository.save(result);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("api/projects/"+prjId.toString()+"/diagrams", diagram.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * PUT  /diagrams : Updates an existing diagram.
+     *
+     * @param diagram the diagram to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated diagram,
+     * or with status 400 (Bad Request) if the diagram is not valid,
+     * or with status 500 (Internal Server Error) if the diagram couldnt be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    /*@RequestMapping(value = "/diagrams",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -118,7 +142,7 @@ public class DiagramResource {
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("diagram", diagram.getId().toString()))
             .body(result);
-    }
+    }*/
 
     /**
      * GET  /diagrams : get all the diagrams.
@@ -152,18 +176,18 @@ public class DiagramResource {
     }
 
     /**
-     * GET  /diagrams/:id : get the "id" diagram.
+     * GET  /diagrams/:diagId : get the "diagId" diagram.
      *
-     * @param id the id of the diagram to retrieve
+     * @param diagId the id of the diagram to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the diagram, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/diagrams/{id}",
+    @RequestMapping(value = "/diagrams/{diagId}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Diagram> getDiagram(@PathVariable Long id) {
-        log.debug("REST request to get Diagram : {}", id);
-        Diagram diagram = diagramRepository.findOne(id);
+    public ResponseEntity<Diagram> getDiagram(@PathVariable Long diagId) {
+        log.debug("REST request to get Diagram : {}", diagId);
+        Diagram diagram = diagramRepository.findOne(diagId);
         return Optional.ofNullable(diagram)
             .map(result -> new ResponseEntity<>(
                 result,
@@ -172,20 +196,20 @@ public class DiagramResource {
     }
 
     /**
-     * DELETE  /diagrams/:id : delete the "id" diagram.
+     * DELETE  /diagrams/:diagId : delete the "diagId" diagram.
      *
-     * @param id the id of the diagram to delete
+     * @param diagId the id of the diagram to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @RequestMapping(value = "/diagrams/{id}",
+    @RequestMapping(value = "/diagrams/{diagId}",
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Void> deleteDiagram(@PathVariable Long id) {
-        log.debug("REST request to delete Diagram : {}", id);
-        diagramRepository.delete(id);
-        diagramSearchRepository.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("diagram", id.toString())).build();
+    public ResponseEntity<Void> deleteDiagram(@PathVariable Long diagId) {
+        log.debug("REST request to delete Diagram : {}", diagId);
+        diagramRepository.delete(diagId);
+        diagramSearchRepository.delete(diagId);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("diagram", diagId.toString())).build();
     }
 
     /**

@@ -11,7 +11,7 @@
                     </span>
                 </button>
             </div>
-            <div class="col-xs-4 no-padding-right">
+            <div class="col-xs-4 no-padding-right" has-authority="ROLE_ADMIN">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
                         <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
@@ -46,45 +46,51 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
-                    <th jh-sort-by="id" class="text-center"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id" class="text-center" has-authority="ROLE_ADMIN"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name" class="text-center"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="content" class="text-center"><span>Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--th jh-sort-by="content" class="text-center"><span>Content</span> <span class="glyphicon glyphicon-sort"></span></th-->
                     <th jh-sort-by="validation" class="text-center"><span>Validation</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <!--th jh-sort-by="visibility" class="text-center"><span>Visibility</span> <span class="glyphicon glyphicon-sort"></span></th-->
-                    <th jh-sort-by="project.id" ><span>project</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="project.id" has-authority="ROLE_ADMIN"><span>project</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
                 <tr ng-repeat="diagram in vm.diagrams track by diagram.id">
-                    <td class="text-center"><a ui-sref="diagram-detail({id:diagram.id})">{{diagram.id}}</a></td>
+                    <td class="text-center" has-authority="ROLE_ADMIN"><a ui-sref="diagram-detail({diagId:diagram.id})">{{diagram.id}}</a></td>
                     <td class="text-center">{{diagram.name}}</td>
-                    <td class="text-center">{{diagram.content}}</td>
+                    <!--td class="text-center">{{diagram.content}}</td-->
                     <td class="text-center"><i class="glyphicon" ng-class="{'glyphicon-ok text-success': diagram.validation,
                                                     'glyphicon-remove text-danger': !diagram.validation}"></i></td>
                     <!--td class="text-center">{{diagram.visibility}}</td-->
-                    <td>
-                        <a ui-sref="project-detail({id:diagram.project.id})">{{diagram.project.id}}</a>
+                    <td has-authority="ROLE_ADMIN">
+                        <a ui-sref="project-detail({prjId:diagram.project.id})">{{diagram.project.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="diagram-detail({id:diagram.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm"></span>
-                            </button>
-                            <button type="submit"
+                            <!--button type="submit"
                                     ui-sref="diagram.edit({id:diagram.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm"></span>
+                                <span class="hidden-xs hidden-sm">Open in editor</span>
+                            </button-->
+                            <button type="submit"
+                                    ui-sref="diagram-editor.edit({prjId:vm.projectId, diagId:diagram.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm">Open in editor</span>
                             </button>
                             <button type="submit"
-                                    ui-sref="diagram.delete({id:diagram.id})"
+                                    ui-sref="diagram-detail({diagId:diagram.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm">View</span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="diagram.delete({diagId:diagram.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm"></span>
+                                <span class="hidden-xs hidden-sm">Delete</span>
                             </button>
                         </div>
                     </td>

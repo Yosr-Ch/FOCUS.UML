@@ -11,7 +11,7 @@
         var vm = this;
         vm.diagram = entity;
         vm.load = function (id) {
-            Diagram.get({id: id}, function(result) {
+            Diagram.get({diagId: id}, function(result) {
                 vm.diagram = result;
             });
         };

@@ -14,7 +14,7 @@
             $uibModalInstance.dismiss('cancel');
         };
         vm.confirmDelete = function (id) {
-            Project.delete({id: id},
+            Project.delete({prjId: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

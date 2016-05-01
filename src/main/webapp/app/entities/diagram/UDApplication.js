@@ -142,6 +142,15 @@ Application.prototype._changeTabName = function(c) {
     d.removeChild(a);
     d.appendChild(document.createTextNode(e))
 };
+
+//noinspection JSAnnotator
+/*************  ------------   added for PCD -----------------------    **************/
+/*Application.prototype.getTabName() = function(){
+    var e = this._diagrams[c].getName();
+    return e;
+}*/
+/************* -------------  added for PCD  -----------  **************/
+
 Application.prototype._addTab = function(b) {
     var a = document.createElement("li");
     var d = document.createElement("a");
@@ -308,7 +317,7 @@ Application.prototype._generateGeneralMenu = function() {
         };
         //------------------------------------------------------------------------------------------------------------
         var l = function(v) {
-            k.value = m.getCurrentXMLString().toString()+ "HELLOOOOOOOOO!";
+            k.value = m.getCurrentXMLString().toString();
             k.select()
         };
 

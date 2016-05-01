@@ -43,10 +43,34 @@
                 <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
                     <img ng-src="{{slide.image}}" style="margin:auto;">
                     <div class="carousel-caption">
-                        <!--p>{{slide.text}}</p-->
+                        <p>{{slide.text}}</p>
                     </div>
                 </uib-slide>
             </uib-carousel>
+            <!-- Team Members Row -->
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <img class="img-circle img-responsive img-center" src="/content/images/gear.png" width="150px" alt="">
+                    <h3>Easily create your diagrams
+                        <!--small>Job Title</small-->
+                    </h3>
+                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <img class="img-circle img-responsive img-center" src="/content/images/brightness.png" width="150px" alt="">
+                    <h3>Make your ideas happen
+                        <!--small>Job Title</small-->
+                    </h3>
+                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <img class="img-circle img-responsive img-center" src="/content/images/upload.png" width="150px" alt="">
+                    <h3>It's online and free !
+                        <!--small>Job Title</small-->
+                    </h3>
+                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

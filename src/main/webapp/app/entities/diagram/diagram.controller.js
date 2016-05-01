@@ -82,7 +82,10 @@
 
         vm.loadAll();
 
-
+        vm.reload = function()
+        {
+            location.reload();
+        };
 
     }
 })();
