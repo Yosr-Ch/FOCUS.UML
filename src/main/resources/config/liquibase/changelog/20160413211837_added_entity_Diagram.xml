@@ -24,23 +24,27 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="content" type="text">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="validation" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
+            <column name="errors_report" type="text">
+                <constraints nullable="true" />
+            </column>
+
             <column name="visibility" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="project_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="project_id"
                                  baseTableName="diagram"
                                  constraintName="fk_diagram_project_id"

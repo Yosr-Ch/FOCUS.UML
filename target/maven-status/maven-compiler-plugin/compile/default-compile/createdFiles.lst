@@ -57,6 +57,7 @@ com/ensi/pcd/web/rest/errors/CustomParameterizedException.class
 META-INF/spring-configuration-metadata.json
 com/ensi/pcd/domain/Diagram.class
 com/ensi/pcd/domain/PersistentToken.class
+com/ensi/pcd/web/rest/util/TransformationUtil.class
 com/ensi/pcd/config/JHipsterProperties$Metrics$Spark.class
 com/ensi/pcd/config/MetricsConfiguration$GraphiteRegistry.class
 com/ensi/pcd/config/ElasticSearchConfiguration.class
@@ -67,6 +68,7 @@ com/ensi/pcd/config/MetricsConfiguration.class
 com/ensi/pcd/service/AuditEventService.class
 com/ensi/pcd/domain/util/JSR310PersistenceConverters.class
 com/ensi/pcd/config/JHipsterProperties$Metrics$Graphite.class
+com/ensi/pcd/web/rest/util/UML2.class
 com/ensi/pcd/web/rest/util/PaginationUtil.class
 com/ensi/pcd/web/rest/ProjectResource.class
 com/ensi/pcd/config/AsyncConfiguration.class

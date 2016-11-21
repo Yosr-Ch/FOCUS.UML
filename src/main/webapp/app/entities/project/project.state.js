@@ -84,6 +84,7 @@
                         return {
                             name: null,
                             visibility: null,
+                            errors_report: null,
                             content: null,
                             validation: null,
                             id: null
@@ -94,6 +95,26 @@
             .state('diagram-editor.edit', {
                 parent: 'project',
                 url: '/{prjId}/diagrams/{diagId}',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/diagram/diagram-editor.html',
+                        controller: 'DiagramEditorController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    entity: ['$stateParams', 'Diagram', function($stateParams, Diagram) {
+                        return Diagram.get({diagId : $stateParams.diagId}).$promise;
+                    }]
+                }
+
+            })
+            .state('diagram.validate', {
+                parent: 'project',
+                url: '/{prjId}/diagram/{diagId}',
                 data: {
                     authorities: ['ROLE_USER']
                 },
@@ -164,6 +185,30 @@
                         $state.go('project', null, {reload: true});
                     }, function () {
                         $state.go('^');
+                    });
+                }]
+            })
+            .state('project-diagram.delete', {
+                parent: 'project',
+                url: '/{prjId}/diagram/{diagId}/delete',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function ($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'app/entities/diagram/diagram-delete-dialog.html',
+                        controller: 'DiagramDeleteController',
+                        controllerAs: 'vm',
+                        size: 'md',
+                        resolve: {
+                            entity: ['Project', function (Project) {
+                                return Project.diagrams({prjId: $stateParams.prjId});
+                            }]
+                        }
+                    }).result.then(function () {
+                        $state.go('project-diagram', null, {reload: true});
+                    }, function () {
+                        $state.go('project-diagram');
                     });
                 }]
             })

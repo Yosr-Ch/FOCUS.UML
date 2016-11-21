@@ -22,7 +22,11 @@ public class HeaderUtil {
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
         return createAlert("A " + entityName + " is updated with identifier " + param, param);
     }
-
+    /*** added for pcd ***/
+    public static HttpHeaders createEntityValidateAlert(String entityName, String param) {
+        return createAlert("The " + entityName + " is Valid ! Its identifier " + param, param);
+    }
+    /*** added for pcd ***/
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
         return createAlert("A " + entityName + " is deleted with identifier " + param, param);
     }

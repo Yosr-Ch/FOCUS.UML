@@ -20,8 +20,8 @@ spring:
     datasource:
         url: jdbc:postgresql://localhost:5432/demo
         name:
-        username: demo
-        password:
+        username: yosr
+        password: test
     jpa:
         database-platform: com.ensi.pcd.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL

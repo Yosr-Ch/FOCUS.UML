@@ -10,6 +10,7 @@
     function DiagramEditorController ($rootScope, $scope, $state, $stateParams, Diagram, entity, DiagramSearch, ParseLinks, AlertService, Project) {
         var vm = this;
         vm.diagram = entity;
+        //vm.diagIsValid = true;
 
         vm.width = window.innerWidth - 250;
 
@@ -58,7 +59,15 @@
              $scope.jsonObj = x2js.xml_str2json( xmlText );
              console.log("teeeeeeeeeeeeest here !!  "+JSON.stringify(jsonObj));
              $scope.xmltojs = JSON.stringify(jsonObj);*/
-            vm.app.setXMLString(vm.diagram.content);
+            //vm.app.setXMLString(vm.diagram.content);
+            if (vm.diagram.id !== null) {
+                vm.diagram.prjId = $stateParams.prjId;
+                vm.diagram.id = $stateParams.diagId;
+
+                console.log('raw fel valiiiiiiiiiiiidaaaaate');
+                vm.diagram.content = vm.app.getCurrentXMLString();
+            Project.validateDiagram(vm.diagram, onSaveSuccess, onSaveError);
+            }
         };
 
         var onSaveSuccess = function (result) {
@@ -69,6 +78,15 @@
 
         var onSaveError = function () {
             vm.isSaving = false;
+        };
+
+        var onValidateSuccess = function () {
+            $scope.$emit('demoApp:diagramUpdate', result);
+            vm.diagIsValid = false;
+        };
+        var onValidateError = function () {
+            $scope.$emit('demoApp:diagramUpdate', result);
+            vm.diagIsValid = false;
         };
 
         vm.save = function () {

@@ -7,6 +7,9 @@ import com.ensi.pcd.repository.ProjectRepository;
 import com.ensi.pcd.repository.search.DiagramSearchRepository;
 import com.ensi.pcd.web.rest.util.HeaderUtil;
 import com.ensi.pcd.web.rest.util.PaginationUtil;
+import com.ensi.pcd.web.rest.util.TransformationUtil;
+import org.eclipse.uml2.uml.Model;
+import org.jdom2.JDOMException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -201,13 +205,30 @@ public class DiagramResource {
      * @param diagId the id of the diagram to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @RequestMapping(value = "/diagrams/{diagId}",
+    /*@RequestMapping(value = "/diagrams/{diagId}",
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<Void> deleteDiagram(@PathVariable Long diagId) {
         log.debug("REST request to delete Diagram : {}", diagId);
         diagramRepository.delete(diagId);
+        diagramSearchRepository.delete(diagId);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("diagram", diagId.toString())).build();
+    }*/
+    /**
+     * DELETE  projects/:prjId/diagrams/:diagId : delete the "diagId" diagram.
+     *
+     * @param prjId the id of the project
+     * @param diagId the id of the diagram to delete
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @RequestMapping(value = "projects/{prjId}/diagrams/{diagId}",
+        method = RequestMethod.DELETE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Void> deleteDiagram(@PathVariable Long prjId, Long diagId) {
+        log.debug("REST request to delete Diagram : {}", diagId);
+        diagramRepository.deleteByProjectId(prjId, diagId);
         diagramSearchRepository.delete(diagId);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("diagram", diagId.toString())).build();
     }
@@ -229,6 +250,55 @@ public class DiagramResource {
         Page<Diagram> page = diagramSearchRepository.search(queryStringQuery(query), pageable);
         HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/diagrams");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
+     * PUT  /diagrams : validates an existing diagram.
+     *
+     * @param diagram the diagram to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated diagram,
+     * or with status 400 (Bad Request) if the diagram is not valid,
+     * or with status 500 (Internal Server Error) if the diagram couldnt be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @RequestMapping(value = "/projects/{prjId}/diagram",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Diagram> validateDiagram(@PathVariable Long prjId, @Valid @RequestBody Diagram diagram) throws URISyntaxException, JDOMException, IOException {
+        log.debug("REST request to validate Diagram : {}", diagram);
+        if (diagram.getId() == null) {
+            return saveDiagram(prjId,diagram);
+        }
+        Model ucdTest = TransformationUtil.XMLToXMI(diagram.getContent());
+        //TransformationUtil.saveUCD(ucdTest);
+        String errorsModel = TransformationUtil.XMLToXMIErrors(diagram.getContent());
+        String errors = TransformationUtil.validateUCD(ucdTest);
+
+        log.debug("ucdTEsssssssssst", ucdTest);
+        if (errors == null && errorsModel == null) {
+            diagram.setValidation(true);
+            diagram.seterrors_report("valid" + errors + errorsModel);
+        Diagram result = diagramRepository.save(diagram);
+        diagramSearchRepository.save(result);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityValidateAlert("api/projects/"+prjId.toString()+"/diagram", diagram.getId().toString()))
+            .body(result);
+        }
+        else{
+            //String errors = TransformationUtil.XMLToXMIErrors(diagram.getContent());
+            log.debug("les erreurs te3na !!!!", errors);
+            diagram.setValidation(false);
+            diagram.seterrors_report("ERROR IN \n" + errors + "\n" + errorsModel + "\n");
+            Diagram result = diagramRepository.save(diagram);
+            diagramSearchRepository.save(result);
+            return ResponseEntity.ok()
+                //.headers(HeaderUtil.createEntityValidateAlert("api/projects/"+prjId.toString()+"/diagram", diagram.getId().toString()))
+                .body(result);
+        /*return ResponseEntity.ok()
+            .headers(HeaderUtil.createFailureAlert("api/projects/"+prjId.toString()+"/diagram", diagram.getId().toString(), "Diagram not valid!!"))
+            .body(null) ;*/
+        }
     }
 
 }

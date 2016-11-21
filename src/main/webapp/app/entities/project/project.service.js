@@ -32,7 +32,9 @@
                 }
             },
             'editDiagram': { method: 'PUT', params: {prjId:'@prjId', action: 'diagrams', diagId:'@diagId'}},
-            'update': { method:'PUT' }
+            'validateDiagram': { method: 'PUT', params: {prjId:'@prjId', action: 'diagram', diagId:'@diagId'}},
+            'update': { method:'PUT' },
+            'deleteDiagram': {method: 'DELETE', params: {prjId:'@prjId', action: 'diagrams', diagId:'@diagId'}}
         });
     }
 })();

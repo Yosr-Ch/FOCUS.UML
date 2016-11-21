@@ -37,25 +37,18 @@
     <div>
         <h2>Diagram editor</h2>
         <jhi-alert></jhi-alert>
+        <div>
+            <div class="alert alert-danger" ng-show=" vm.diagram.validation == false">
+                <strong>Use Case Diagram non valid!</strong> Please check your diagram elements and associations then try again.
+            </div>
+        </div>
+
         <div class="container-fluid ">
             <div class="row">
                 <div class="no-padding-left">
-                    <form name="editorForm" role="form" novalidate ng-submit="vm.save()">
-                        <div>
-                            <button type="submit"
-                                    onclick="window.history.back()"
-                                    class="btn btn-info">
-                                <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
-                            </button>
-                        </div>
+                    <form name="validateForm" role="form" novalidate ng-submit="myFunc()">
                         <div class="btn-group pull-right">
-                            <button class="btn btn-primary" type="submit"> <!--ng-click="myFunc()" ui-sref="project.new"-->
-                                <span class="glyphicon glyphicon-save"></span>
-                                <span class="hidden-xs" >
-                                    Save
-                                </span>
-                            </button>
-                            <button class="btn btn-success" ng-click="myFunc()" ng-disabled="vm.diagram.id == null"> <!-- ui-sref="project.new" -->
+                            <button class="btn btn-success" type="submit" ng-disabled="vm.diagram.id == null">
                                 <span class="glyphicon glyphicon-check"></span>
                                 <span class="hidden-xs" >
                                     Validate
@@ -63,6 +56,22 @@
                             </button>
                         </div>
                     </form>
+                    <form name="editorForm" role="form" novalidate ng-submit="vm.save()">
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-save"></span>
+                                <span class="hidden-xs" >
+                                    Save
+                                </span>
+                            </button>&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </form>
+                    <div>
+                        <button onclick="window.history.back()"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Diagrams</span>
+                        </button>
+                    </div>
                 </div>
                 <div id="umldiagram">
                     <div style="margin-top: 5%;">

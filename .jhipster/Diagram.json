@@ -1,0 +1,40 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "validation",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "visibility",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "errors_report",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160413211837",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "diagram",
+    "pagination": "infinite-scroll"
+}

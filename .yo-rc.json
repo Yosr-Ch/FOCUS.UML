@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "jhipsterVersion": "3.0.0",
+    "baseName": "demo",
+    "packageName": "com.ensi.pcd",
+    "packageFolder": "com/ensi/pcd",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "rememberMeKey": "48b349e5f1fa91e8dd04511786cf4f06324d7113",
+    "useSass": false,
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "enableTranslation": false
+  }
+}

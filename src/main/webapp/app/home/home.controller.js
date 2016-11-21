@@ -28,7 +28,7 @@
 
 
         /*****************************************************/
-        $scope.myInterval = 2000;
+        $scope.myInterval = 3500;
         $scope.noWrapSlides = false;
         $scope.active = 0;
         var slides = $scope.slides = [];
@@ -38,7 +38,7 @@
             var newWidth = 600 + slides.length + 1;
             slides.push({
                 //image: 'http://lorempixel.com/' + newWidth + '/300',
-                image: ['/content/images/slide2.jpg', '/content/images/intro-bg.jpg', '/content/images/slide1.png'][slides.length % 3],
+                image: ['/content/images/slide2.jpg', '/content/images/intro-bg.jpg', '/content/images/slide1.jpg'][slides.length % 3],
                 text: ['Nice image','That is so cool','I love that'][slides.length % 3],
                 id: currIndex++
             });

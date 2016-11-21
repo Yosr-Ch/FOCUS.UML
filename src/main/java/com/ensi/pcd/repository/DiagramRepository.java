@@ -12,4 +12,7 @@ public interface DiagramRepository extends JpaRepository<Diagram,Long> {
 
 
     Page<Diagram> findByProjectId(Long prjId, Pageable pageable);
+
+    //@Query("delete from Diagram diagram where diagram.project_id = ?1")
+    void deleteByProjectId(Long prjId, Long diagId);
 }

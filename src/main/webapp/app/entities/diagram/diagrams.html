@@ -51,6 +51,7 @@
                     <!--th jh-sort-by="content" class="text-center"><span>Content</span> <span class="glyphicon glyphicon-sort"></span></th-->
                     <th jh-sort-by="validation" class="text-center"><span>Validation</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <!--th jh-sort-by="visibility" class="text-center"><span>Visibility</span> <span class="glyphicon glyphicon-sort"></span></th-->
+                    <!--th jh-sort-by="errors_report" class="text-center"><span>Errors report</span> <span class="glyphicon glyphicon-sort"></span></th-->
                     <th jh-sort-by="project.id" has-authority="ROLE_ADMIN"><span>project</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -63,6 +64,7 @@
                     <td class="text-center"><i class="glyphicon" ng-class="{'glyphicon-ok text-success': diagram.validation,
                                                     'glyphicon-remove text-danger': !diagram.validation}"></i></td>
                     <!--td class="text-center">{{diagram.visibility}}</td-->
+                    <!--td class="text-center">{{diagram.errors_report}}</td-->
                     <td has-authority="ROLE_ADMIN">
                         <a ui-sref="project-detail({prjId:diagram.project.id})">{{diagram.project.id}}</a>
                     </td>
@@ -87,7 +89,7 @@
                                 <span class="hidden-xs hidden-sm">View</span>
                             </button>
                             <button type="submit"
-                                    ui-sref="diagram.delete({diagId:diagram.id})"
+                                    ui-sref="project-diagram.delete({prjId:vm.projectId, diagId:diagram.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm">Delete</span>

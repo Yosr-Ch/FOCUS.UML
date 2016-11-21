@@ -37,6 +37,10 @@ public class Diagram implements Serializable {
     @Column(name = "validation")
     private Boolean validation;
 
+    @Lob @Type(type="org.hibernate.type.TextType")
+    @Column(name = "errors_report")
+    private String errors_report;
+
     @Column(name = "visibility")
     private Boolean visibility;
 
@@ -74,6 +78,15 @@ public class Diagram implements Serializable {
     public void setValidation(Boolean validation) {
         this.validation = validation;
     }
+
+    public String geterrors_report() {
+        return errors_report;
+    }
+
+    public void seterrors_report(String errors_report) {
+        this.errors_report = errors_report;
+    }
+
 
     public Boolean isVisibility() {
         return visibility;
@@ -118,6 +131,7 @@ public class Diagram implements Serializable {
             ", name='" + name + "'" +
             ", content='" + content + "'" +
             ", validation='" + validation + "'" +
+            ", errorsReport='" + errors_report + "'" +
             ", visibility='" + visibility + "'" +
             '}';
     }
