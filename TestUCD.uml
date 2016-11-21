@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_DBTakBtsEeaFbo0AQGyX3g" name="UseCaseDiag">
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_DBTakRtsEeaFbo0AQGyX3g" name="uc"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_DBTakhtsEeaFbo0AQGyX3g" name=""/>
-</uml:Model>
