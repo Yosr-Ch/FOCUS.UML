@@ -1,72 +1,34 @@
 <div ng-cloak>
     <div class="row">
-        <!--div class="col-md-4">
-            <!--span class="hipster img-responsive img-rounded"></span-->
-        <!--/div>
-        <div class="col-md-8">
-            <h1>Welcome!</h1>
-            <p class="lead">This is your homepage</p>
-
-            <div ng-switch="vm.isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true">
-                    You are logged in as user "{{vm.account.login}}".
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false">
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false">
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
-                </div>
-            </div>
-
-            <!--p>
-                If you have any question on JHipster:
-            </p>
-
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank" >follow @java_hipster on Twitter</a></li>
-            </ul>
-
-            <p>
-             <span>If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank">Github</a>!
-            </p>
-        </div-->
-
         <div style="height: 275px">
             <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
                     <img ng-src="{{slide.image}}" style="margin:auto;">
                     <div class="carousel-caption">
-                        <!--p>{{slide.text}}</p-->
+                        
                     </div>
                 </uib-slide>
             </uib-carousel>
-            <!-- Team Members Row -->
+            
             <div class="row">
                 <div class="col-lg-4 col-sm-6 text-center">
                     <img class="img-circle img-responsive img-center" src="/content/images/gear.png" width="150px" alt="">
                     <h3>Add unlimited diagrams
-                        <!--small>Job Title</small-->
+                        
                     </h3>
                     <p>No limitation on the number of diagrams created!</p>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center">
                     <img class="img-circle img-responsive img-center" src="/content/images/brightness.png" width="150px" alt="">
                     <h3>Easily create interactive diagrams
-                        <!--small>Job Title</small-->
+                        
                     </h3>
                     <p>Make your ideas happen.</p>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center">
                     <img class="img-circle img-responsive img-center" src="/content/images/upload.png" width="150px" alt="">
                     <h3>It's online and free !
-                        <!--small>Job Title</small-->
+                  
                     </h3>
                     <p>No installation required ! All you need is an email address to start using our cloud application.</p>
                 </div>
